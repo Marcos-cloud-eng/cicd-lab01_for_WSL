@@ -22,3 +22,12 @@ jobs:
 
       - name: Run tests
         run: python -m pytest -v
+
+      - name: Build artifact
+        run: zip -r app-build.zip app tests requirements.txt
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-build
+          path: app-build.zip
