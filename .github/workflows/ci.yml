@@ -41,9 +41,10 @@ jobs:
           name: app-build
           path: app-build.zip
 
-  deploy:
+    deploy:
     runs-on: ubuntu-24.04
     needs: build
+    if: github.ref == 'refs/heads/main'
 
     steps:
       - name: Simulate deploy
