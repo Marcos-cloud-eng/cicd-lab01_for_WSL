@@ -2,7 +2,7 @@ from app.calculadora import somar, subtrair
 
 
 def test_somar():
-    assert somar(2, 3) == 6
+    assert somar(2, 3) == 5
 
 
 def test_subtrair():
