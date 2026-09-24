@@ -1,4 +1,4 @@
-name: CI Pipeline
+name: CI/CD Pipeline
 
 on:
   push:
@@ -40,3 +40,13 @@ jobs:
         with:
           name: app-build
           path: app-build.zip
+
+  deploy:
+    runs-on: ubuntu-24.04
+    needs: build
+
+    steps:
+      - name: Simulate deploy
+        run: |
+          echo "Iniciando deploy..."
+          echo "Aplicacao publicada com sucesso."
