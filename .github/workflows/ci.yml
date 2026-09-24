@@ -5,6 +5,7 @@ on:
   pull_request:
 
 jobs:
+
   test:
     runs-on: ubuntu-24.04
 
@@ -22,6 +23,14 @@ jobs:
 
       - name: Run tests
         run: python -m pytest -v
+
+  build:
+    runs-on: ubuntu-24.04
+    needs: test
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       - name: Build artifact
         run: zip -r app-build.zip app tests requirements.txt
